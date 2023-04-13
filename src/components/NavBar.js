@@ -7,7 +7,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function NavBar() {
+function NavBar({ onChangePage }) {
+    function handleLinkClick(e) {
+        e.preventDefault()
+        onChangePage(e.target.pathname)
+    }
+
   return (
     <>
       {['md'].map((expand) => (
@@ -27,19 +32,19 @@ function NavBar() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">My Profile</Nav.Link>
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/profilepage">My Profile</Nav.Link>
                   <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
+                    <NavDropdown.Item href="/matchpage">Match Page</NavDropdown.Item>
+                    <NavDropdown.Item href="/learnmore">
+                      Learn More
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
+                    <NavDropdown.Item href="Create Profile">
+                      Create Profile
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>

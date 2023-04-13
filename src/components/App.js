@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
 import CatPage from "./CatPage";
 import NavBar from "./NavBar";
+import ProfilePage from "./ProfilePage";
+import MatchPage from "./MatchPage";
+import LearnMore from "./LearnMore";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const[cats, setCats] = useState([])
-
-  useEffect(() => {
-    fetch("http://localhost:3000/cats")
-    .then((r) => r.json())
-        .then((cats) => setCats(cats))
-    }, [])
+  const[page, setPage] = useState("/")
 
 return (
   <div>
-    <BrowserRouter>
+    <NavBar onChangePage={setPage}/>
       <Routes>
-        <Route exact path="/" element={<NavBar />}></Route>
+        <Route to="/profilepage" element={<ProfilePage />} />
+        <Route to="/matchpage" element={<MatchPage />} />
+        <Route to="/learnmore" element={<LearnMore />} />
+        <Route to="/" element={<CatPage />} />
       </Routes>
-    </BrowserRouter>
-      <CatPage cats={cats} setCats={setCats}/>
+    <CatPage />
   </div>
 );
 }
