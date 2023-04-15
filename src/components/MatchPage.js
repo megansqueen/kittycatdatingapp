@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CatCard from "./CatCard";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,6 +9,8 @@ function MatchPage({cats, setCats}) {
     const matchedCatArray = cats.filter((cat) => {
         if (cat.matchStatus === "matched") {
             return cat
+        } else {
+            return null
         }
     })
 
@@ -16,6 +18,8 @@ function MatchPage({cats, setCats}) {
         const matchedCats =  matchedCatArray.filter((cat) => {
             if (cat.id !== unMatch) {
                 return cat
+            } else {
+                return null
             }
         })
         setCats(matchedCats)

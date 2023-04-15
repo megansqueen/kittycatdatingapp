@@ -8,6 +8,9 @@ function CatPage({ cats, setCats }) {
         if (cat.matchStatus === "null") {
             return cat
         }
+        else {
+            return null
+        }
     })
 
     function handleSearch(search) {

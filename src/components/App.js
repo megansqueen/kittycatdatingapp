@@ -8,7 +8,6 @@ import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const[page, setPage] = useState("/")
   const[cats, setCats] = useState([])
   
   useEffect(() => {
@@ -24,7 +23,7 @@ function App() {
 
 return (
   <div>
-    <NavBar onChangePage={setPage}/>
+    <NavBar />
       <Routes>
         <Route exact path="/*" element={<CatPage cats={cats} setCats={setCats}/>} />
         <Route path="/createprofile" element={<CreateProfile handleItem={handleItem}cats={cats} setCats={setCats}/>} />
@@ -37,6 +36,3 @@ return (
 }
 
 export default App;
-
-{/* <Route path="/" element={<Home />} />
-<Route path="users/*" element={<Users />} /> */}

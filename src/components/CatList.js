@@ -9,8 +9,13 @@ function CatList({
     setCats
   }) {
     function handleDeleted(deletedCat) {
-        setCats(cats.filter((cat) => cat.id !== deletedCat));
-      }
+        const remainingCats = cats.filter((cat) => {
+            if (cat.id !== deletedCat) {
+                return cat
+            }
+        })
+        setCats(remainingCats)
+    }
 
     function handleMatch(match) {
         const unmatchedCats = cats.filter((cat) => {
