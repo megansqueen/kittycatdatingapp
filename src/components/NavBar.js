@@ -1,13 +1,11 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function NavBar({ onChangePage }) {
+function NavBar({ onChangePage, handleSearch }) {
     function handleLinkClick(e) {
         e.preventDefault()
         onChangePage(e.target.pathname)
@@ -35,7 +33,7 @@ function NavBar({ onChangePage }) {
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/createprofile">Create Profile</Nav.Link>
                   <NavDropdown
-                    title="Dropdown"
+                    title="See More"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item href="/matchpage">Match Page</NavDropdown.Item>
@@ -43,20 +41,8 @@ function NavBar({ onChangePage }) {
                       Learn More
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="Create Profile">
-                      Create Profile
-                    </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

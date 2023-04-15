@@ -11,7 +11,9 @@ function CatCard({
     pickupLine, 
     id,
     handleDeleted,
-    handleMatch
+    handleMatch,
+    handleUnMatch,
+    matchedStatus
 }) {
 
     function handleDeleteClick() {
@@ -36,7 +38,7 @@ function CatCard({
             .then(() => handleMatch(id))
     }
 
-    function handleUnMatch() {
+    function handleUnMatchUpdate() {
         fetch(`http://localhost:3000/cats/${id}`, {
             method: "PATCH",
             headers: {
@@ -64,9 +66,9 @@ function CatCard({
         <ListGroup.Item>Favorite Movie: {favoritemovie}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-      <Button onClick={handleMatchUpdate}variant="success">Match</Button>
-      <Button onClick={handleUnMatch}variant="Secondary">Unmatch</Button>
-      <Button onClick={handleDeleteClick}variant="Dark">Delete</Button>
+        <Button onClick={handleMatchUpdate}variant="danger">Match</Button>
+        <Button onClick={handleUnMatchUpdate}variant="secondary">Unmatch</Button>
+        <Button onClick={handleDeleteClick}variant="dark">Delete</Button>
       </Card.Body>
     </Card>
   );

@@ -34,7 +34,7 @@ function CatList({
                             favoritemovie={cat.favoriteMovie}
                             age={cat.age}
                             pickupLine={cat.pickupLine}
-                            matchedStatus={cat.matched}
+                            matchedStatus={cat.matchStatus}
                             handleDeleted={handleDeleted}
                             handleMatch={handleMatch}
                         />
