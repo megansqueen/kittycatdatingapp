@@ -14,12 +14,12 @@ return (
   <div>
     <NavBar onChangePage={setPage}/>
       <Routes>
-        <Route to="/profilepage" element={<ProfilePage />} />
-        <Route to="/matchpage" element={<MatchPage />} />
-        <Route to="/learnmore" element={<LearnMore />} />
-        <Route to="/" element={<CatPage />} />
+        <Route exact path="/" element={<CatPage />} />
+        <Route path="/profilepage" element={<ProfilePage />} />
+        <Route path="/matchpage" element={<MatchPage />} />
+        <Route path="/learnmore" element={<LearnMore />} />
+        <Route path="*" element={<h1>404 Error</h1>} />
       </Routes>
-    <CatPage />
   </div>
 );
 }
