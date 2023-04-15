@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+Welcome to the best Cat Dating App on the web!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Read through for a high level overview of the site and the navigational features.
 
-## Available Scripts
+When the site first loads you are greated with a Navigation bar, search bar, and list of cats with active dating proviles. Scan through the profiles and you will have access to a profile picture and some basic information about the cats who are single and ready to mingle.
 
-In the project directory, you can run:
+![Screenshot](3E9451D8-5F72-4359-AF37-B7BA5D4E516C.jpeg)
 
-### `npm start`
+The next step is to start finding your matches. To do this, it's as easy as clicking the red "match" button from the home page. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Screenshot](2896D363-CB8C-4A2E-BBF3-683543797EE4.jpeg)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once you have clicked "match", the cat profile you have matched with will be removed from the home page. To view all your matches, you can use the navigation bar to select "See More", and then click "Matches" to view only the list of cats you've matched with.
 
-### `npm test`
+![Screenshot](CC0B2F3B-89CC-4C8A-A345-21FB02746900.jpeg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you change your mind about a particular cat, you can remove them from the Matched page by clicking the "Unmatch" button.
 
-### `npm run build`
+![Screenshot](6C31A84F-A37A-4547-891F-BD32B7D88006.jpeg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you would like to make your own dating profile, you can do that to! Navigating to the "Create Profile" screen will give you the option to build your own cat dating profile card that will appear on the home screen for all to see.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screenshot](0D1E5D15-F33C-4930-BBC1-8EF91B0C2CCE.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the same "See More" dropdown menu, you can also navigate to a "learn more" page, which offers three tabs of information on the website, its founder, and contact information.
 
-### `npm run eject`
+Last but not least, if you leave the page and come back later but have one cat in mind that stuck with you, you can use the "Search" bar to find that exact can based on a search of their name.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy and good luck finding true love!
