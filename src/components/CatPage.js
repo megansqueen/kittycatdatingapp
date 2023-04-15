@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CatList from "./CatList";
 
-function CatPage({}) {
-    const[cats, setCats] = useState([])
-  
-    useEffect(() => {
-      fetch("http://localhost:3000/cats")
-      .then((r) => r.json())
-          .then((cats) => setCats(cats))
-      }, [])
+function CatPage({ cats, setCats, match, setMatch }) {
 
   return (
     <main>
             <CatList 
                 cats={cats}
                 setCats={setCats}
+                match={match} 
+                setMatch={setMatch}
             />
     </main>
   );

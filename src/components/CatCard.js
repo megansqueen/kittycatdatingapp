@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 
@@ -6,25 +6,38 @@ function CatCard({
     name,
     image,
     age,
-    favoritemovie
+    favoritemovie,
+    pickupLine
 }) {
+    const[match, setMatch] = useState(false)
+
+    function handleMatch() {
+        setMatch(true)
+    }
+
+    function handleUnMatch() {
+        setMatch(!match)
+    }
+
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Title>Single</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Text>
-          {name}
+          {pickupLine}
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>{name}</ListGroup.Item>
-        <ListGroup.Item>{age}</ListGroup.Item>
+        <ListGroup.Item>Age: {age}</ListGroup.Item>
         <ListGroup.Item>Favorite Movie: {favoritemovie}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+        {match ? (
+            <button onClick={handleUnMatch}className="primary">Unmatch</button>
+        ) : (
+            <button onClick={handleMatch}>Match</button>
+        )}
       </Card.Body>
     </Card>
   );

@@ -5,8 +5,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function CatList({
-    cats
+    cats,
+    match, 
+    setMatch
   }) {
+
   return (
     <Container>
       <Row>
@@ -19,6 +22,9 @@ function CatList({
                             name={cat.name}
                             favoritemovie={cat.favoriteMovie}
                             age={cat.age}
+                            pickupLine={cat.pickupLine}
+                            match={match} 
+                            setMatch={setMatch}
                         />
             </Col>
         ))}
