@@ -14,7 +14,7 @@ function LearnMore() {
       <Tab eventKey="profile" title="Founders">
         <p>Single Kitties Ready to Mingle was founded by Clarice - a young cat who struggled finding other cats to connect with within wandering distance of her human's home. Since the launch of this amazing dating platform, thousands of deserving kitties have found love</p>
       </Tab>
-      <Tab eventKey="contact" title="Contact" disabled>
+      <Tab eventKey="contact" title="Contact">
         <p>Clarice doesn't have a phone or email, but if you've like to offer feedback you can find her occasionally wandering down 20th st in Portland OR. She's the white fluffy one.</p>
       </Tab>
     </Tabs>
