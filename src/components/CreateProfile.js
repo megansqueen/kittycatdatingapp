@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 function CreateProfile({ cats, setCats }) {
     const [name, setName] = useState([])
@@ -41,19 +44,20 @@ function CreateProfile({ cats, setCats }) {
         })
         .then((r) => r.json())
         .then((newItem) => handleItem(newItem))
+        .then(handleReset)
     }
 
     return (
         <div className="new-cat-form">
         <h2>Create Profile</h2>
-        <form onSubmit={handleSubmit}>
-          <input onChange={(e) => setName(e.target.value)}type="text" name="name" placeholder="Cat name" value={name}/>
-          <input onChange={(e) => setAge(e.target.value)}type="number" name="age" placeholder="Cat age" value={age}/>
-          <input onChange={(e) => setImage(e.target.value)}type="text" name="image" placeholder="Image URL" value={image}/>
-          <input onChange={(e) => setMovie(e.target.value)}type="text" name="movie" placeholder="movie" value={movie}/>
-          <input onChange={(e) => setPickupLine(e.target.value)}type="text" name="pickupLine" placeholder="Pickup Line" value={pickupLine}/>
-          <button type="submit"onClick={handleReset}>Add Profile</button>
-        </form>
+        <Form className="d-flex">
+                    <Form.Control onChange={(e) => setName(e.target.value)}type="text" name="name" placeholder="Cat name" value={name}/>
+                    <Form.Control onChange={(e) => setAge(e.target.value)}type="number" name="age" placeholder="Cat age" value={age}/>
+                    <Form.Control onChange={(e) => setImage(e.target.value)}type="text" name="image" placeholder="Image URL" value={image}/>
+                    <Form.Control onChange={(e) => setMovie(e.target.value)}type="text" name="movie" placeholder="movie" value={movie}/>
+                    <Form.Control onChange={(e) => setPickupLine(e.target.value)}type="text" name="pickupLine" placeholder="Pickup Line" value={pickupLine}/>
+                <Button type="submit"onClick={handleSubmit}>Add Profile/</Button>
+            </Form>
       </div>
     );
   }
