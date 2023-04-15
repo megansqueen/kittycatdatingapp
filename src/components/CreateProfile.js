@@ -3,18 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-function CreateProfile({ cats, setCats }) {
+function CreateProfile({ handleItem }) {
     const [name, setName] = useState([])
     const [age, setAge] = useState([])
     const [image, setImage] = useState([])
     const [movie, setMovie] = useState([])
     const [pickupLine, setPickupLine] = useState([])
     const [matchStatus, setMatchStatus] = useState([])
-
-    function handleItem(newItem) {
-        console.log(newItem)
-        setCats([...cats, newItem])
-    }
 
     function handleReset() {
         setName("")
