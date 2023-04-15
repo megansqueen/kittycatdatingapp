@@ -17,7 +17,9 @@ function CatPage({ cats, setCats }) {
         const searchedArray = unMatchedCatArray.filter((cat) => {
           if(cat.name.toLowerCase().includes(search.toLowerCase())) {
               return cat
-            } 
+            } else {
+                return null
+            }
           })
           setCats(searchedArray)
         }

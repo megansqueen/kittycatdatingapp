@@ -12,6 +12,8 @@ function CatList({
         const remainingCats = cats.filter((cat) => {
             if (cat.id !== deletedCat) {
                 return cat
+            } else {
+                return null
             }
         })
         setCats(remainingCats)
@@ -21,6 +23,9 @@ function CatList({
         const unmatchedCats = cats.filter((cat) => {
             if (cat.id !== match) {
                 return cat
+            }
+            else {
+                return null
             }
         })
         setCats(unmatchedCats)
