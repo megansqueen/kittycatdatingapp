@@ -10,7 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const[page, setPage] = useState("/")
   const[cats, setCats] = useState([])
-  const[match, setMatch] = useState([])
   
   useEffect(() => {
     fetch("http://localhost:3000/cats")
@@ -24,7 +23,7 @@ return (
       <Routes>
         <Route exact path="/*" element={<CatPage cats={cats} setCats={setCats}/>} />
         <Route path="/createprofile" element={<CreateProfile cats={cats} setCats={setCats}/>} />
-        <Route path="/matchpage" match={match} setMatch={setMatch}element={<MatchPage match={match}cats={cats}/>} />
+        <Route path="/matchpage" element={<MatchPage setCats={setCats}cats={cats}/>} />
         <Route path="/learnmore" element={<LearnMore />} />
         <Route path="*" element={<h1>404 Error</h1>} />
       </Routes>

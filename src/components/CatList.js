@@ -6,9 +6,20 @@ import Col from 'react-bootstrap/Col';
 
 function CatList({
     cats,
-    match, 
-    setMatch
+    setCats
   }) {
+    function handleDeleted(deletedCat) {
+        setCats(cats.filter((cat) => cat.id !== deletedCat));
+      }
+
+    function handleMatch(match) {
+        const unmatchedCats = cats.filter((cat) => {
+            if (cat.id !== match) {
+                return cat
+            }
+        })
+        setCats(unmatchedCats)
+    }
 
   return (
     <Container>
@@ -23,8 +34,9 @@ function CatList({
                             favoritemovie={cat.favoriteMovie}
                             age={cat.age}
                             pickupLine={cat.pickupLine}
-                            match={match} 
-                            setMatch={setMatch}
+                            matchedStatus={cat.matched}
+                            handleDeleted={handleDeleted}
+                            handleMatch={handleMatch}
                         />
             </Col>
         ))}

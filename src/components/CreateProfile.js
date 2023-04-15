@@ -6,6 +6,7 @@ function CreateProfile({ cats, setCats }) {
     const [image, setImage] = useState([])
     const [movie, setMovie] = useState([])
     const [pickupLine, setPickupLine] = useState([])
+    const [matchStatus, setMatchStatus] = useState([])
 
     function handleItem(newItem) {
         console.log(newItem)
@@ -18,6 +19,7 @@ function CreateProfile({ cats, setCats }) {
         setImage("")
         setMovie("")
         setPickupLine("")
+        setMatchStatus("null")
     }
 
     function handleSubmit(e) {
@@ -27,7 +29,8 @@ function CreateProfile({ cats, setCats }) {
             name: name,
             favoriteMovie: movie,
             age: age,
-            pickupLine: pickupLine
+            pickupLine: pickupLine,
+            matchStatus: matchStatus
         }
         fetch("http://localhost:3000/cats", {
             method: "POST",

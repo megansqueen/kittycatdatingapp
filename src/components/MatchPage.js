@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import CatCard from "./CatCard";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function MatchPage({cats, match}) {
-
-    const matchedCats = cats.filter((cat) => {
-        if (match === true) {
+function MatchPage({cats, setCats}) {
+    
+    const matchedCatArray = cats.filter((cat) => {
+        if (cat.matchStatus === "matched") {
             return cat
         }
     })
 
+    function handleUnMatch(unMatch) {
+        const matchedCats =  matchedCatArray.filter((cat) => {
+            if (cat.id !== unMatch) {
+                return cat
+            }
+        })
+        setCats(matchedCats)
+    }
+
     return (
         <Container>
         <Row>
-              {matchedCats.map((cat) => (
+              {matchedCatArray.map((cat) => (
               <Col sm key={cat.id}>
-                      
                           <CatCard 
                               id={cat.id}
                               image={cat.url}
@@ -25,7 +33,7 @@ function MatchPage({cats, match}) {
                               favoritemovie={cat.favoriteMovie}
                               age={cat.age}
                               pickupLine={cat.pickupLine}
-                              match={match} 
+                              handleUnMatch={handleUnMatch}
                           />
               </Col>
           ))}

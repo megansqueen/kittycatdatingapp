@@ -1,22 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 function CatCard({    
     name,
     image,
     age,
     favoritemovie,
-    pickupLine
+    pickupLine, 
+    id,
+    handleDeleted,
+    handleMatch
 }) {
-    const[match, setMatch] = useState(false)
 
-    function handleMatch() {
-        setMatch(true)
+    function handleDeleteClick() {
+        fetch(`http://localhost:3000/cats/${id}`, {
+          method: "DELETE",
+        })
+          .then((r) => r.json())
+          .then(() => handleDeleted(id))
+      }
+
+    function handleMatchUpdate() {
+        fetch(`http://localhost:3000/cats/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "matchStatus": "matched"
+            })
+        })
+            .then((r) => r.json())
+            .then(() => handleMatch(id))
     }
 
     function handleUnMatch() {
-        setMatch(!match)
+        fetch(`http://localhost:3000/cats/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "matchStatus": "null"
+            })
+        })
+            .then((r) => r.json())
+            .then(() => handleUnMatch(id))
     }
 
   return (
@@ -33,11 +64,9 @@ function CatCard({
         <ListGroup.Item>Favorite Movie: {favoritemovie}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        {match ? (
-            <button onClick={handleUnMatch}className="primary">Unmatch</button>
-        ) : (
-            <button onClick={handleMatch}>Match</button>
-        )}
+      <Button onClick={handleMatchUpdate}variant="success">Match</Button>
+      <Button onClick={handleUnMatch}variant="Secondary">Unmatch</Button>
+      <Button onClick={handleDeleteClick}variant="Dark">Delete</Button>
       </Card.Body>
     </Card>
   );
