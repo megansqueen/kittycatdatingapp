@@ -16,7 +16,7 @@ function App() {
         .then((cats) => setCats(cats))
     }, [])
 
-  function handleItem(newItem) {
+  function handleNewCat(newItem) {
       console.log(newItem)
       setCats([...cats, newItem])
   }
@@ -26,7 +26,7 @@ return (
     <NavBar />
       <Routes>
         <Route exact path="/*" element={<CatPage cats={cats} setCats={setCats}/>} />
-        <Route path="/createprofile" element={<CreateProfile handleItem={handleItem}cats={cats} setCats={setCats}/>} />
+        <Route path="/createprofile" element={<CreateProfile handleNewCat={handleNewCat}cats={cats} setCats={setCats}/>} />
         <Route path="/matchpage" element={<MatchPage setCats={setCats}cats={cats}/>} />
         <Route path="/learnmore" element={<LearnMore />} />
         <Route path="*" element={<h1>404 Error</h1>} />

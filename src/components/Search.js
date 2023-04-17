@@ -1,29 +1,26 @@
-import React, { useState } from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React from "react";
 
 
-function Search({ onSearch }) {
-const[search, setSearch] = useState("")
+function Search({ searchTerm, handleSearch }) {
+// const[search, setSearch] = useState("")
 
-    function handleOnSearch(e) {
-        e.preventDefault()
-        onSearch(search)
-    }
+    // function handleOnSearch(e) {
+    //     e.preventDefault()
+    //     onSearch(search)
+    // }
 
 return (
 
-    <Form className="d-flex">
-        <Form.Control
-            type="search"
-            placeholder="Search Cats"
-            className="me-2"
-            aria-label="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+    <div className="searchbar">
+        <label htmlFor="search">Search Cats</label>
+            <input
+                type="search"
+                id="search"
+                placeholder="Search Cats"
+                value={searchTerm}
+                onChange={(e) => handleSearch(e.target.value)}
         />
-        <Button onClick={handleOnSearch}type="submit"variant="outline-success">Search</Button>
-    </Form>
+    </div>
 
 )
 }

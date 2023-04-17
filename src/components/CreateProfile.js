@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-function CreateProfile({ handleItem }) {
+function CreateProfile({ handleNewCat }) {
     const [name, setName] = useState([])
     const [age, setAge] = useState([])
     const [image, setImage] = useState([])
@@ -38,20 +38,20 @@ function CreateProfile({ handleItem }) {
             body: JSON.stringify(itemData),
         })
         .then((r) => r.json())
-        .then((newItem) => handleItem(newItem))
+        .then((newItem) => handleNewCat(newItem))
         .then(handleReset)
     }
 
     return (
         <div className="new-cat-form">
         <h2>Create Profile</h2>
-        <Form className="d-flex">
+        <Form className="d-flex"onSubmit={handleSubmit}>
                     <Form.Control onChange={(e) => setName(e.target.value)}type="text" name="name" placeholder="Cat name" value={name}/>
                     <Form.Control onChange={(e) => setAge(e.target.value)}type="number" name="age" placeholder="Cat age" value={age}/>
                     <Form.Control onChange={(e) => setImage(e.target.value)}type="text" name="image" placeholder="Image URL" value={image}/>
                     <Form.Control onChange={(e) => setMovie(e.target.value)}type="text" name="movie" placeholder="movie" value={movie}/>
                     <Form.Control onChange={(e) => setPickupLine(e.target.value)}type="text" name="pickupLine" placeholder="Pickup Line" value={pickupLine}/>
-                <Button type="submit"onClick={handleSubmit}>Add Profile/</Button>
+                <Button type="submit">Add Profile/</Button>
             </Form>
       </div>
     );

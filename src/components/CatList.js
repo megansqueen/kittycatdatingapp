@@ -6,10 +6,16 @@ import Col from 'react-bootstrap/Col';
 
 function CatList({
     cats,
-    setCats
+    setCats,
+    searchTerm
   }) {
+
+    const filteredCats = cats.filter ((cat) => {
+        return cat.name.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+
     function handleDeleted(deletedCat) {
-        const remainingCats = cats.filter((cat) => {
+        const remainingCats = filteredCats.filter((cat) => {
             if (cat.id !== deletedCat) {
                 return cat
             } else {
@@ -20,7 +26,7 @@ function CatList({
     }
 
     function handleMatch(match) {
-        const unmatchedCats = cats.filter((cat) => {
+        const unmatchedCats = filteredCats.filter((cat) => {
             if (cat.id !== match) {
                 return cat
             }
@@ -34,7 +40,7 @@ function CatList({
   return (
     <Container>
       <Row>
-            {cats.map((cat) => (
+            {filteredCats.map((cat) => (
             <Col sm key={cat.id}>
                     
                         <CatCard 

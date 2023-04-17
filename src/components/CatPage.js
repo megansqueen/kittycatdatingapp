@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import CatList from "./CatList";
 import Search from "./Search";
 
 function CatPage({ cats, setCats }) {
+    const [searchTerm, setSearchTerm] = useState("")
 
     const unMatchedCatArray = cats.filter((cat) => {
         if (cat.matchStatus === "null") {
@@ -14,22 +15,16 @@ function CatPage({ cats, setCats }) {
     })
 
     function handleSearch(search) {
-        const searchedArray = unMatchedCatArray.filter((cat) => {
-          if(cat.name.toLowerCase().includes(search.toLowerCase())) {
-              return cat
-            } else {
-                return null
-            }
-          })
-          setCats(searchedArray)
+        setSearchTerm(search)
         }
 
   return (
     <main>
-        <Search onSearch={handleSearch} />
+        <Search searchTerm={searchTerm}handleSearch={handleSearch}/>
             <CatList 
-                cats={cats}
+                cats={unMatchedCatArray}
                 setCats={setCats}
+                searchTerm={searchTerm}
             />
     </main>
   );
